@@ -20,14 +20,16 @@ type Order struct {
 	Size      float64
 	Limit     *Limit
 	Timestamp int64
+	UserID    int
 }
 
-func NewOrder(bid bool, size float64) *Order {
+func NewOrder(bid bool, size float64, userID int) *Order {
 	return &Order{
 		ID:        rand.Intn(10000000),
 		Bid:       bid,
 		Size:      size,
 		Timestamp: time.Now().UnixNano(),
+		UserID:    userID,
 	}
 }
 
